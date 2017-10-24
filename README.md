@@ -28,3 +28,4 @@ proof of concept.
 - What are Kafka's read semantics?
 - How are topics consumed? Are consumers stateful? Can logs be replayed?
 - How would a "materializer" consume the log for the purposes of materializing?
+# play-with-go
