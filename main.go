@@ -12,16 +12,46 @@ import (
 )
 
 var kafkaHost = "localhost:9092"
-var kafkaTopic = "test"
+var kafkaTopic = "feed"
+var kafkaProcessedTopic = "processedFeed"
 
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", writeHandler).Methods("POST")
+	r.HandleFunc("/feed", viewFeed).Methods("GET")
 
 	go readHandler()
 
 	fmt.Println("Listening on port 8000")
 	log.Fatal(http.ListenAndServe(":8000", r))
+}
+
+func viewFeed(w http.ResponseWriter, r *http.Request) {
+	k := kafka.NewReader(kafka.ReaderConfig{
+		Brokers:   []string{kafkaHost},
+		Topic:     kafkaProcessedTopic,
+		Partition: 0,
+		MinBytes:  10e3, // 10KB
+		MaxBytes:  10e6, // 10MB
+	})
+	var result map[int64]string
+	result = make(map[int64]string)
+	for {
+		m, err := k.ReadMessage(context.Background())
+		if err != nil {
+			break
+		}
+		result[m.Offset] = string(m.Value)
+		k.Close()
+	}
+	var response []byte
+	json, err := json.Marshal(result)
+	if err != nil {
+		response = []byte("{\"status\":\"not ok\",\"message\":\"unable to marshal json\"}")
+	}
+
+	response = []byte(json)
+	w.Write(response)
 }
 
 func writeHandler(w http.ResponseWriter, r *http.Request) {
@@ -79,6 +109,12 @@ func readHandler() {
 		MaxBytes:  10e6, // 10MB
 	})
 
+	w := kafka.NewWriter(kafka.WriterConfig{
+		Brokers:  []string{kafkaHost},
+		Topic:    kafkaProcessedTopic,
+		Balancer: &kafka.LeastBytes{},
+	})
+
 	defer k.Close()
 
 	for {
@@ -92,6 +128,14 @@ func readHandler() {
 			m.Offset,
 			string(m.Key),
 			string(m.Value),
+		)
+
+		w.WriteMessages(
+			context.Background(),
+			kafka.Message{
+				Key:   []byte(string(m.Key)),
+				Value: []byte("Processed " + string(m.Value)),
+			},
 		)
 	}
 }
