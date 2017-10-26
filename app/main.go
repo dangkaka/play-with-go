@@ -11,7 +11,7 @@ import (
 	"github.com/segmentio/kafka-go"
 )
 
-var kafkaHost []string = []string{"192.168.99.100:32788", "192.168.99.100:32787", "192.168.99.100:32786"}
+var kafkaHost []string = []string{"192.168.99.100:32805", "192.168.99.100:32804", "192.168.99.100:32803"}
 var kafkaTopic = "feed"
 var kafkaProcessedTopic = "processedFeed"
 

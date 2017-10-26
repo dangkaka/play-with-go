@@ -29,3 +29,16 @@ proof of concept.
 - How are topics consumed? Are consumers stateful? Can logs be replayed?
 - How would a "materializer" consume the log for the purposes of materializing?
 # play-with-go
+
+## How to install
+Start a cluster:
+
+- ```docker-compose up -d ```
+
+Add more brokers:
+
+- ```docker-compose scale kafka=3```
+
+Destroy a cluster:
+
+- ```docker-compose stop```
