@@ -25,4 +25,4 @@
 * Bootstrap create 3 kafka nodes by default. If you want to add more, you can edit in bootstrap.sh
 
 ## Reference
-* Use `https://github.com/wurstmeister/kafka-docker` as your Kafka cluster docker
+* Use `https://github.com/wurstmeister/kafka-docker` as Kafka cluster docker
