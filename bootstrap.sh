@@ -32,6 +32,7 @@ echo 'app path: ' $APP_PATH
 docker_compose_path='env/'$ENV
 echo "docker-compose path" $docker_compose_file
 
-cd $docker_compose_path &&
+cd 'env/staging' &&
 docker-compose build --pull &&
-docker-compose up -d --scale kafka=$brokers
+docker-compose up -d &&
+docker-compose scale kafka=$brokers
