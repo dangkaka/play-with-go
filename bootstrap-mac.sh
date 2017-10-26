@@ -8,5 +8,5 @@ if [[ -z "${DOCKER_HOST_IP-}" ]]; then
   export DOCKER_HOST_IP=$docker_host_ip
 fi
 
-docker-compose -f "docker-compose-dev.yml" build --pull
-docker-compose -f "docker-compose-dev.yml" up -d --scale kafka=3
+docker-compose -f "docker-compose-mac.yml" build --pull
+docker-compose -f "docker-compose-mac.yml" up -d --scale kafka=3

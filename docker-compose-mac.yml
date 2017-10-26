@@ -17,10 +17,13 @@ services:
     links:
       - "zookeeper:zookeeper"
   zfeed:
-      image: dangkaka/zfeed
-      ports:
-        - "8080:8080"
-      volumes:
-            - ./app:/go/src/zfeed
-      links:
-            - "kafka:kafka"
+    image: dangkaka/zfeed
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./app:/go/src/zfeed
+    links:
+      - "kafka:kafka"
+      - "mongo:mongo"
+  mongo:
+    image: dangkaka/mongo

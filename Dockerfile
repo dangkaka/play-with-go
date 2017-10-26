@@ -6,7 +6,7 @@ ENV APP_ENV $app_env
 COPY ./app /go/src/zfeed
 WORKDIR /go/src/zfeed
 
-RUN go get ./
+RUN go get
 RUN go build
 
 CMD if [ ${APP_ENV} = production ]; \
