@@ -29,8 +29,9 @@ echo 'brokers: ' $brokers
 export APP_PATH=$(pwd)/app
 echo 'app path: ' $APP_PATH
 
-docker_compose_file='env/'$ENV'/docker-compose.yml'
+docker_compose_path='env/'$ENV
 echo "docker-compose path" $docker_compose_file
 
-docker-compose -f $docker_compose_file build --pull
-docker-compose -f $docker_compose_file -p zfeed up -d --scale kafka=$brokers
+cd $docker_compose_path &&
+docker-compose build --pull &&
+docker-compose up -d --scale kafka=$brokers

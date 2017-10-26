@@ -16,7 +16,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     links:
       - "zookeeper:zookeeper"
-  go:
+  zfeed:
       image: dangkaka/zfeed
       ports:
         - "8080:8080"
