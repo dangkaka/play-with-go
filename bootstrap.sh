@@ -26,7 +26,7 @@ else
 fi
 echo 'brokers: ' $brokers
 
-export APP_PATH=$(PWD)/app
+export APP_PATH=$(pwd)/app
 echo 'app path: ' $APP_PATH
 
 docker_compose_file='env/'$ENV'/docker-compose.yml'
