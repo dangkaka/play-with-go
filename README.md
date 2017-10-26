@@ -7,12 +7,12 @@
 
 1. Install docker
 2. Put your `go` application in `app/`
-2.
+3. Start docker
 * On Mac
     ```./bootstrap-mac.sh```
 * On Ubuntu
     ```./bootstrap.sh```
-3. `localhost:8080` is ready to use
+4. `localhost:8080` is ready to use
 
 ## Usage
 * Post some value
