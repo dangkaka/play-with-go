@@ -23,12 +23,34 @@
 
 ## MongoDB
 * How to connect to mongoDB
+
 ```docker exec -it tinyfeed_mongo_1 mongo```
+
 * Some basic command
-    - Show all db `show dbs`
-    - Use 1 db `use {dbName}`
-    - Show all collection `show collections`
-    - Find all data in 1 collection `db.{collectionName}.find({})`
+    - Show all db 
+        `show dbs`
+    - Use 1 db 
+        `use {dbName}`
+    - Show all collection 
+        `show collections`
+    - Find all data in 1 collection 
+        `db.{collectionName}.find({})`
+    
+## Kafka
+* How to connect to kafka: able to connect to any kafka node. Example: node1
+
+    ```docker exec -it tinyfeed_kafka_1 bash```
+    ```cd /opt/kafka/bin```
+
+* Some basic command
+    - Listen to 1 topic. Example: feed
+    
+        ```./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic feed```
+        
+    - Open producer. Example: feed
+    
+        ```./kafka-console-producer.sh --broker-list localhost:9092 --topic feed```
+        
 
 ## Notes
 * Bootstrap create 3 kafka nodes by default. If you want to add more, you can edit in bootstrap.sh
