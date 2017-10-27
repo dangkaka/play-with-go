@@ -23,7 +23,7 @@
 
 ## MongoDB
 * How to connect to mongoDB
-```ocker exec -it tinyfeed_mongo_1 mongo```
+```docker exec -it tinyfeed_mongo_1 mongo```
 * Some basic command
     - Show all db `show dbs`
     - Use 1 db `use {dbName}`
