@@ -24,7 +24,7 @@
 ## MongoDB
 * How to connect to mongoDB
 
-```docker exec -it tinyfeed_mongo_1 mongo```
+    ```docker exec -it tinyfeed_mongo_1 mongo```
 
 * Some basic command
     - Show all db 
