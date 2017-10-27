@@ -25,10 +25,10 @@
 * How to connect to mongoDB
 ```ocker exec -it tinyfeed_mongo_1 mongo```
 * Some basic command
-- Show all db `show dbs`
-- Use 1 db `use {dbName}`
-- Show all collection `show collections`
-- Find all data in 1 collection `db.{collectionName}.find({})`
+    - Show all db `show dbs`
+    - Use 1 db `use {dbName}`
+    - Show all collection `show collections`
+    - Find all data in 1 collection `db.{collectionName}.find({})`
 
 ## Notes
 * Bootstrap create 3 kafka nodes by default. If you want to add more, you can edit in bootstrap.sh
