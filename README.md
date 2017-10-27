@@ -40,6 +40,7 @@
 * How to connect to kafka: able to connect to any kafka node. Example: node1
 
     ```docker exec -it tinyfeed_kafka_1 bash```
+    
     ```cd /opt/kafka/bin```
 
 * Some basic command
