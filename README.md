@@ -1,6 +1,6 @@
 ## What is this project for?
 
-* Understand know how kafka + Go + MongoDB work together
+* Understand how kafka + Go + MongoDB work together
 * Use docker to build environment: easier to install, easier to use
 
 ## Setup
