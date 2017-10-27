@@ -26,7 +26,7 @@
 
     ```docker exec -it tinyfeed_mongo_1 mongo```
 
-* Some basic command
+* Some basic commands
     - Show all db 
         `show dbs`
     - Use 1 db 
@@ -43,7 +43,7 @@
     
     ```cd /opt/kafka/bin```
 
-* Some basic command
+* Some basic commands
     - Listen to 1 topic. Example: feed
     
         ```./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic feed```
